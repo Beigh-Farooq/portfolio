@@ -1,0 +1,70 @@
+Basic styling
+html, body {
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color:lightblue
+}
+
+/* Header Styling */
+header {
+    background: #333;
+    color: white;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000; /* Ensures header is always on top */
+}
+
+/* Logo Styling */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffcc00; /* Fancy golden color */
+    text-transform: uppercase;
+}
+
+/* Navigation Styling */
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 15px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links li a:hover {
+    color: #ffcc00; /* Hover effect */
+}
+
+/* Fixes spacing since header is fixed */
+section {
+    padding: 80px 20px;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    color: white;
+    margin-top: 2.5%;
+}

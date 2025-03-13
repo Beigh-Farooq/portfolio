@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+
+{% block content %}{%load static%}
+<style>
+    /*css for image  */
+    .round-image {
+        width: 230px; /* Set the width */
+        height: 230px; /* Set the height */
+        border-radius: 50%; /* Circle shape */
+        object-fit: cover; /* Crop the image to fit in the circle */
+        object-position: top center; /* Position the image so that it starts from the top */
+        margin-top: 10%; /* Move the image slightly down */
+        border: 5px solid #ffffff; /* Fancy white border around the image */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+    }
+    .round-image:hover {
+        transform: translateY(-10px); /* Move the image upwards when hovered */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+        border: 5px solid #3498db; /* Change border color to a fancy blue */
+    }
+
+    .d-flex.justify-content-start {
+        position: relative;
+        margin-top: 5%;
+        /* left: -25%; Adjust based on how far left you want to move the image */
+    }
+    
+
+    /* Move the text div towards the right */
+    .d-flex.justify-content-end {
+        margin-left: 35%; /* Adjust this value based on how much you want to move */
+        margin-top: 5%;
+    }
+    /* General styling for the span */
+    .writing-mode {
+        font-family: 'Arial', sans-serif;
+        font-size: 1.5rem;
+        color: #ffffff; 
+        line-height: 1.6;
+        background-color: #333333;
+        padding: 20px;
+        border-radius: 10%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: block;
+        text-align: center;
+        margin: 20px auto;
+        max-width: 80%;
+        transition: transform 0.3s ease;
+    }
+
+    /* Add hover effect */
+    .writing-mode:hover {
+        transform: scale(1.05); /* Slightly enlarge text when hovering */
+        color: #f0f0f0; /* Change color on hover for effect */
+        background-color: #444; /* Darker background on hover */
+    }
+
+    /* contact form css */
+
+    /* Styling for the contact form container */
+    .contact-form-container {
+        background-color: #333; /* Dark background for the form */
+        color: white; /* White text color */
+        padding: 30px;
+        border-radius: 10px;
+        max-width: 750px; /* Max width for the form */
+        margin: 0 auto; /* Center the form */
+    }
+
+    /* Style the h2 heading */
+    .contact-form-container h2 {
+        text-align: center; /* Center the heading */
+        margin-bottom: 20px; /* Space below the heading */
+        color: goldenrod;
+    }
+
+    /* Style the form labels */
+    .contact-form-container label {
+        font-size: 1.1rem; /* Slightly larger text for labels */
+        margin-top: 10px;
+        display: block; /* Make label take full width */
+    }
+
+    /* Style the input fields */
+    .contact-form-container input,
+    .contact-form-container textarea {
+        width: 100%; /* Full width for inputs */
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        background-color: #ddd;
+    }
+
+    /* Style the textarea */
+    .contact-form-container textarea {
+        height: 150px; /* Set height for the textarea */
+        resize: vertical; /* Allow vertical resizing */
+    }
+
+    /* Style the submit button */
+    .contact-form-container button {
+        background-color: #5c5c5c; /* Dark gray background for the button */
+        color: white; /* White text */
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%; /* Full width button */
+    }
+
+    .contact-form-container button {
+        background-color:goldenrod;
+    }
+
+</style>
+
+<section id="home">
+    <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-end">
+            <span class="writing-mode">
+                Hi, I'm Beigh Farooq, a passionate Python Backend Developer with 1.8 years of experience in building high-performance web applications using Python and Django. 
+                <br><br>
+                <a href="#contact" class="btn" style="background-color: #DAA520; color: white; border: none;">
+                    Reach Out Now
+                </a>
+            </span>
+        </div>
+        
+        <div class="d-flex justify-content-start px-5">
+            <img class="round-image"  src="{% static 'images/PHOTO.jpg' %}" alt="Profile Image" >
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>I'm a backend developer specializing in Python and Django.</p>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <ul>
+        <li>Python</li>
+        <li>Django</li>
+        <li>PostgreSQL</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>Django</li>
+        <li>PostgreSQL</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>Django</li>
+        <li>PostgreSQL</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>Django</li>
+        <li>PostgreSQL</li>
+        <li>JavaScript</li>
+    </ul>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <ul>
+        <li>Project 1 - Django Web App</li>
+        <li>Project 2 - API Development</li>
+    </ul>
+</section>
+
+<section id="contact">
+    <div class="contact-form-container">
+        <h2>Contact Me</h2><br>
+        <form method="POST" action="/contact/">
+            {% csrf_token %}
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="phone">Phone:</label><br>
+            <input type="text" id="phone" name="phone" required><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" required></textarea><br>
+            <button type="submit">Submit</button><br>
+        </form>
+    </div>
+</section>
+
+{% endblock %}
